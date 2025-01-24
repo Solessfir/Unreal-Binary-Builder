@@ -40,17 +40,17 @@ namespace UnrealBinaryBuilderUpdater
 			{
 				_sparkle = new SparkleUpdater(APP_CAST_XML, new DSAChecker(NetSparkleUpdater.Enums.SecurityMode.UseIfPossible, "+mLdLTe3Mj6OU0Kr6+ZDeVj+TTFRsNUJvUaPhuJ7pUI="))
 				{
-					ShowsUIOnMainThread = false,
 					UseNotificationToast = true
 				};
-				_sparkle.LogWriter = new LogWriter(true);
+				_sparkle.LogWriter = new LogWriter();
 			}
 
 			if (_sparkle.UIFactory == null)
 			{
-				string manifestModuleName = System.Reflection.Assembly.GetEntryAssembly().ManifestModule.FullyQualifiedName;
-				var icon = System.Drawing.Icon.ExtractAssociatedIcon(manifestModuleName);
-				_sparkle.UIFactory = new NetSparkleUpdater.UI.WPF.UIFactory(NetSparkleUpdater.UI.WPF.IconUtilities.ToImageSource(icon));
+				// TODO
+				// string manifestModuleName = System.Reflection.Assembly.GetEntryAssembly().ManifestModule.FullyQualifiedName;
+				// var icon = System.Drawing.Icon.ExtractAssociatedIcon(manifestModuleName);
+				// _sparkle.UIFactory = new NetSparkleUpdater.UI.WPF.UIFactory(NetSparkleUpdater.UI.WPF.IconUtilities.ToImageSource(icon));
 			}
 
 			_sparkle.SecurityProtocolType = System.Net.SecurityProtocolType.Tls12;
